@@ -1,0 +1,86 @@
+:root {
+    --primary-light-gray: rgb(245, 246, 248);
+    --red-button: rgba(254,86,88);
+    --green-button: rgb(255, 189, 49);
+    --yellow-button: rgb(56, 206, 68);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#content-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+
+#sidebar {
+    height: 100vh;
+    background-color: var(--primary-light-gray);
+    grid-column: 1 / 3;
+}
+
+#uppersidebar {
+    padding: 0.5rem 0.5rem;
+    cursor: default;
+}
+
+.button {
+    height: 15px;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 0.2rem;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.button1:hover {
+    background-color: var(--red-button);
+    border-color: var(--red-button);
+}
+
+.button2:hover {
+    background-color: var(--green-button);
+    border-color: var(--green-button);
+}
+
+.button3:hover {
+    background-color: var(--yellow-button);
+    border-color: var(--yellow-button);
+}
+
+#middlesidebar {
+    padding-top: 2rem;
+}
+
+.default-field {
+    margin: 0.3rem 1rem 0.3rem 1.5rem;
+    padding: 0.3rem 0;
+    cursor: default;
+}
+
+.default-field::before {
+    padding: 0 0.5rem;
+}
+
+.default-field:hover {
+    background-color: gray;
+    border-radius: 5px;
+}
+
+.inbox::before {
+    content: '📥';
+}
+
+.today::before {
+    content: '⭐';
+}
+
+.week::before {
+    content: '📅';
+    /* padding-right: 0.5rem; */
+}
