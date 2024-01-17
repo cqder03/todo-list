@@ -10,15 +10,36 @@
     <main id="content-wrapper">
         <div id="sidebar">
             <div id="uppersidebar">
-                <button class="button button1"></button>
-                <button class="button button2"></button>
-                <button class="button button3"></button>
+                <button class="corner-button button1"></button>
+                <button class="corner-button button2"></button>
+                <button class="corner-button button3"></button>
             </div>
             <div id="middlesidebar">
-                <div class="default-field inbox">Inbox</div>
-                <div class="default-field today">Today</div>
-                <div class="default-field week">This week</div>
+                <div class="default-fields">
+                    <div id="inbox" class="default-field">Inbox</div>
+                    <div id="today" class="default-field">Today</div>
+                    <div id="week" class="default-field">This week</div>
+                    <div id="logbook" class="default-field">Logbook</div>
+                </div>
+                <div class="added-fields">
+                    <h2>Projects</h2>
+                </div>
             </div>
+            <div id="bottomsidebar">
+                <div class="add-project">New Project</div>
+                <div class="add-project-modal closed-modal">
+                    <input id="add-project-name" type="text" placeholder="Enter project name">
+                    <textarea name="description" id="add-project-description" cols="30" rows="10" 
+                    placeholder="Enter project description"></textarea>
+                    <div class="button-wrapper">
+                        <button class="modal-button submit">Submit</button>
+                        <button class="modal-button cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-content">
+
         </div>
     </main>
 </body>

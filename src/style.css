@@ -1,3 +1,22 @@
+@font-face {
+    font-family: 'robotolight';
+    src: url('../src/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2'),
+         url('../src/assets/fonts/Roboto/roboto-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('../src/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2'),
+         url('../src/assets/fonts/Roboto/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --primary-light-gray: rgb(245, 246, 248);
     --red-button: rgba(254,86,88);
@@ -9,6 +28,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'robotolight';
 }
 
 #content-wrapper {
@@ -16,11 +36,13 @@
     grid-template-columns: repeat(12, 1fr);
 }
 
+/* Sidebar */
 
 #sidebar {
     height: 100vh;
     background-color: var(--primary-light-gray);
     grid-column: 1 / 3;
+    position: relative;
 }
 
 #uppersidebar {
@@ -28,7 +50,7 @@
     cursor: default;
 }
 
-.button {
+.corner-button {
     height: 15px;
     width: auto;
     aspect-ratio: 1 / 1;
@@ -36,6 +58,10 @@
     border: 1px solid gray;
     border-radius: 50%;
     background-color: transparent;
+}
+
+.corner-button:active {
+    transform: scale(0.90);
 }
 
 .button1:hover {
@@ -57,30 +83,144 @@
     padding-top: 2rem;
 }
 
-.default-field {
-    margin: 0.3rem 1rem 0.3rem 1.5rem;
-    padding: 0.3rem 0;
+.default-field,
+.add-project,
+.added-field {
+    user-select: none;
+}
+
+.default-field,
+.added-field {
+    margin: 0.2rem 0.7rem;
+    padding: 0.25rem 0.3rem 0.25rem 0.8rem;
     cursor: default;
 }
 
-.default-field::before {
+.default-field::before,
+.add-project::before,
+.added-field .iconHolderSpan {
     padding: 0 0.5rem;
 }
 
-.default-field:hover {
-    background-color: gray;
+.default-field:hover,
+.added-field:hover {
+    background-color: rgb(225, 227, 232);
     border-radius: 5px;
 }
 
-.inbox::before {
-    content: '📥';
+
+.active {
+    padding-left: 1.5rem;
+    background-color: rgb(225, 227, 232);
+    transition: padding-left 0.5s;
 }
 
-.today::before {
+
+.default-field:not(.active),
+.added-field:not(.active) {
+    padding-left: 0.3rem;
+    transition: padding-left 0.5s;
+}
+
+#inbox::before {
+    content: '📥';
+    color: black;
+}
+
+#today::before {
     content: '⭐';
 }
 
-.week::before {
+#week::before {
     content: '📅';
-    /* padding-right: 0.5rem; */
+}
+
+#logbook::before {
+    content: '📒';
+}
+
+.added-fields > h2 {
+    padding: 2rem 0 0 1.5rem;
+}
+
+.add-project {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.5rem;
+    line-height: 1.5rem;
+    padding: 1rem 1.3rem;
+    border-top: 2px solid rgb(225, 227, 232);
+    
+}
+
+.add-project::before {
+    content: '➕';
+}
+
+.add-project:active {
+    background-color: black;
+    color: white;
+}
+
+.add-project-modal {
+    position: absolute;
+    bottom: 3.5rem;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    border-top: 2px solid rgb(225, 227, 232);
+}
+
+.closed-modal {
+    display: none;
+}
+
+.add-project-modal > * {
+    text-indent: 0.25rem;
+}
+
+.add-project-modal > #add-project-name {
+    height: 2rem;
+    border: 1px solid gray;
+}
+
+.add-project-modal > #add-project-description {
+    resize: none;
+    height: 4rem;
+    width: 90%;
+}
+
+#add-project-name,
+#add-project-description {
+    background-color: transparent;
+    width: 90%;
+    border: 1px solid gray;
+}
+
+.modal-button {
+    border: 1px solid gray;
+    background: transparent;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+}
+
+.modal-button:active {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
+/* Sidebar end*/
+
+/* Main content */
+
+#main-content {
+    grid-column: 3 / 13;
+    background-color: blanchedalmond;
 }
