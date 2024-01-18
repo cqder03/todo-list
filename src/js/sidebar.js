@@ -29,7 +29,13 @@ function addProject() {
     const iconHolder = document.createElement('span');
     const textHolder = document.createElement('span');
     
-    project.setAttribute('id', `${projectName.toLowerCase()}`);
+     if (projectName.includes(' ')) {
+        let id = projectName.replace(' ', '-');
+        project.setAttribute('id', `${id.toLowerCase()}`);    
+     } else {
+         project.setAttribute('id', `${projectName.toLowerCase()}`);
+     }
+    
     project.classList.add('added-field');
 
     iconHolder.textContent = '::before';

@@ -20,8 +20,8 @@
 :root {
     --primary-light-gray: rgb(245, 246, 248);
     --red-button: rgba(254,86,88);
-    --green-button: rgb(255, 189, 49);
-    --yellow-button: rgb(56, 206, 68);
+    --green-button: rgb(56, 206, 68);
+    --yellow-button:rgb(255, 189, 49);
 }
 
 * {
@@ -93,6 +93,7 @@
 .added-field {
     margin: 0.2rem 0.7rem;
     padding: 0.25rem 0.3rem 0.25rem 0.8rem;
+    border-radius: 5px;
     cursor: default;
 }
 
@@ -105,7 +106,6 @@
 .default-field:hover,
 .added-field:hover {
     background-color: rgb(225, 227, 232);
-    border-radius: 5px;
 }
 
 
@@ -223,4 +223,98 @@
 #main-content {
     grid-column: 3 / 13;
     background-color: blanchedalmond;
+    padding: 6rem 0 0 4rem;
 }
+
+#main-content > * {
+    WIDTH: 60%;
+}
+
+.main-content-title {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    
+    display: inline;
+}
+
+.main-content-title::before {
+    content: '⭐';
+    padding: 0 0.5rem 0 0.25rem;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.title-wrapper:hover {
+    & .edit, .delete, .add {
+        display: inline;
+    }
+    
+}
+
+.edit, .delete, .add, .done {
+    display: none;
+    border: none;
+    border-radius: 5px;
+    height: 2rem;
+    padding: 0.25rem 2rem;
+}
+
+.edit {
+    background-color: #0fa74c;
+}
+
+.delete {
+    background-color: #aa203e;
+}
+
+.add {
+    background-color: lightskyblue;
+}
+
+.done {
+    background-color: purple;
+}
+
+.edit:active,
+.delete:active,
+.add:active,
+.done:active {
+    transform: scale(0.9);
+}
+
+img {
+    height: 1.5rem;
+}
+
+.main-content-description {
+    padding-bottom: 2rem;
+}
+
+.task {
+    line-height: 2rem;
+    border-radius: 5px;
+    padding-left: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.task:hover {
+    background-color: var(--primary-light-gray);
+
+    & .done {
+        height: 100%;
+        display: inline;
+        margin-right: 0.25rem;
+    }
+
+    & .delete:done {
+        transform: scale(1.05);
+    }
+}
+
