@@ -63,5 +63,4 @@ function modalState(state) {
     }
 }
 
-
 export {activateField, addProject, modalState};
