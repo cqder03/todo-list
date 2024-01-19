@@ -1,3 +1,5 @@
+import { projects, Project, checkDuplicate} from './projects-n-tasks';
+
 function activateField(id) {
     let defaultIds = [];
     document.querySelectorAll('.default-field').forEach((field) => defaultIds.push(field.getAttribute('id')));
@@ -12,10 +14,9 @@ function activateField(id) {
 function activeField(field) {
     let defaultFields = document.querySelectorAll('.default-field');
     let addedFields = document.querySelectorAll('.added-field');
-    defaultFields.forEach(element => {
-        element.classList.remove('active');
-    });
-    addedFields.forEach(element => {
+    let allFields = Array.prototype.concat.call(...defaultFields , ...addedFields );
+    
+    allFields.forEach(element => {
         element.classList.remove('active');
     });
 
@@ -23,19 +24,29 @@ function activeField(field) {
 }
 
 function addProject() {
+    
+    
     const projectName = document.querySelector('#add-project-name').value;
     const projectDescription = document.querySelector('#add-project-description').value;
     const project = document.createElement('div');
     const iconHolder = document.createElement('span');
     const textHolder = document.createElement('span');
-    
+    let id;
+
      if (projectName.includes(' ')) {
-        let id = projectName.replace(' ', '-');
-        project.setAttribute('id', `${id.toLowerCase()}`);    
+        id = projectName.replace(' ', '-').toLowerCase();
+        project.setAttribute('id', `${id}`);    
      } else {
-         project.setAttribute('id', `${projectName.toLowerCase()}`);
+        id = projectName.toLowerCase(); 
+        project.setAttribute('id', `${id}`);
      }
     
+     if (checkDuplicate(id)) {
+        alert('You can\'t use the same name as old pojects');
+        document.querySelector('#add-project-name').value = '';
+        return;
+     }
+
     project.classList.add('added-field');
 
     iconHolder.textContent = '::before';
@@ -48,7 +59,9 @@ function addProject() {
     document.querySelector('.added-fields').appendChild(project);
     project.appendChild(iconHolder);
     project.appendChild(textHolder);
-
+    
+    projects.push(new Project(projectName, id, projectDescription, '⭐'));
+    console.log(projects);
     modalState('close');
 }
 

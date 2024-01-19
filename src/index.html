@@ -40,16 +40,33 @@
         </div>
         <div id="main-content">
             <div class="title-wrapper">
-                <h2 class="main-content-title">Inbox</h2>
-                <button class="add"><img src="../src/assets//icons/plus.png" alt="plus"></button>
-                <button class="delete"><img src="../src/assets/icons/bin.png" alt="bin"></button>
-                <button class="edit"><img src="../src/assets/icons/edit.png" alt="edit"></button>
+                <span class="main-content-title-before">📥</span>
+                <span class="main-content-title">Inbox</span>
             </div>
             <div class="main-content-description">Description : All created tasks</div>
             <div class="task-wrapper">
                 <div class="task"> 
-                    Task1
-                    <button class="done">DONE</button>
+                    <span class="task-text-content">Task 1</span>
+                    <div class="task-options-container">
+                        <button class="edit-task">Edit</button>
+                        <button class="done-task">Done</button>
+                        <button class="priority-preview">High</button>
+                        <input class="task-date" type="date">
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="footer-section add-task">
+                    <button class="add"><img src="../src/assets//icons/plus.png" alt="plus"></button>
+                    <p>Add Task</p>
+                </div>
+                <div class="footer-section edit-project">
+                    <button class="edit"><img src="../src/assets/icons/edit.png" alt="edit"></button>
+                    <p>Edit Project</p>
+                </div>
+                <div class="footer-section delete-project">
+                    <button class="delete"><img src="../src/assets/icons/bin.png" alt="bin"></button>
+                    <p>Delete Project</p>
                 </div>
             </div>
 
