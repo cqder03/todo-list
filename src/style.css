@@ -89,7 +89,7 @@ button > img {
 }
 
 .default-field,
-.add-project,
+#add-project,
 .added-field {
     user-select: none;
 }
@@ -103,7 +103,7 @@ button > img {
 }
 
 .default-field::before,
-.add-project::before,
+#add-project::before,
 .added-field .iconHolderSpan {
     padding-right: 0.5rem;
 }
@@ -148,7 +148,7 @@ button > img {
     padding: 2rem 0 0 1.5rem;
 }
 
-.add-project {
+#add-project {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -160,16 +160,16 @@ button > img {
     
 }
 
-.add-project::before {
+#add-project::before {
     content: '➕';
 }
 
-.add-project:active {
+#add-project:active {
     background-color: black;
     color: white;
 }
 
-.add-project-modal {
+#add-project-modal {
     position: absolute;
     bottom: 3.5rem;
     left: 0;
@@ -182,20 +182,20 @@ button > img {
     border-top: 2px solid var(--darker-gray);
 }
 
-.closed-modal {
+#add-project-modal.closed-modal {
     display: none;
 }
 
-.add-project-modal > * {
+#add-project-modal > * {
     text-indent: 0.25rem;
 }
 
-.add-project-modal > #add-project-name {
+#add-project-modal > #add-project-name {
     height: 2rem;
     border: 1px solid gray;
 }
 
-.add-project-modal > #add-project-description {
+#add-project-modal > #add-project-description {
     resize: none;
     height: 4rem;
     width: 90%;
@@ -286,6 +286,7 @@ img {
     min-height: 2.5rem;
     border-radius: 5px;
     padding: 0 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .task:hover {
@@ -303,7 +304,11 @@ img {
     cursor: default;
 }
 
-#main-content > .footer {
+.task-date {
+    margin-left: 0.25rem;
+}
+
+#main-content > #footer {
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -347,3 +352,92 @@ img {
     border-left: 5px solid rgb(245, 206, 191);
 }
 
+/* Modals */
+
+#add-task-modal,
+#edit-project-modal {
+    position: absolute;
+    width: 45rem;
+    height: 25rem;
+    border: 1px solid black;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+  } 
+
+#add-task-modal, 
+#add-task-description,
+#add-task-modal button,
+#edit-project-modal, 
+#edit-project-description,
+#edit-project-modal button  {
+    border-radius: 5px;
+  }
+
+  #add-task-modal > *:not(p),
+  #edit-project-modal > *:not(p) {
+    margin: 0 2.25rem;
+  }
+
+  .add-task-para,
+  .edit-project-para {
+    margin: 2rem 0 0 2.25rem;
+  }
+
+  #add-task-description,
+  #edit-project-description {
+    resize: none;
+    background-color: transparent;
+    width: 90%;
+    height: 5rem;
+  }
+
+  #modal-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+  }
+
+  #add-task-modal button,
+  #edit-project-modal button {
+    padding: 0.25rem 1rem;
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 1rem;
+  }
+
+  #add-task-modal button:active,
+  #edit-project-modal button:active {
+    transform: scale(0.95);
+  }
+
+  #delete-project-modal {
+    position: absolute;
+    width: 35rem;
+    height: 15rem;
+    border: 1px solid black;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+  } 
+
+  #delete-project-modal, 
+  #delete-project-modal button {
+    border-radius: 5px;
+  }
+
+
+  #delete-project-modal button {
+    padding: 0.25rem 1rem;
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 1rem;
+    margin: 0 0.25rem;
+  }
+
+  #delete-project-modal button:active {
+    transform: scale(0.95);
+  }
