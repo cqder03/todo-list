@@ -248,10 +248,10 @@ button > img {
     padding: 0 0.5rem 0 0.25rem;
     font-size: 1.5rem;
     position: relative;
-    bottom: 0.3rem;
+    bottom: 0.2rem;
 }
 
-.edit, .delete, .add, .done-task, .edit-task, .priority-preview {
+.edit, .delete, .add, .done-task, .edit-task, .priority-preview, .task-date {
     border: 0.1px solid black;
     background-color: transparent;
     border-radius: 5px;
@@ -357,10 +357,12 @@ img {
 #add-task-modal,
 #edit-project-modal {
     position: absolute;
+    top: 30%;
+    left: 40%;
     width: 45rem;
     height: 25rem;
     border: 1px solid black;
-    background-color: transparent;
+    background-color: white;
     display: flex;
     flex-direction: column;
   } 
@@ -372,6 +374,7 @@ img {
 #edit-project-description,
 #edit-project-modal button  {
     border-radius: 5px;
+    margin: 0 0.25rem;
   }
 
   #add-task-modal > *:not(p),
@@ -413,10 +416,12 @@ img {
 
   #delete-project-modal {
     position: absolute;
+    top: 40%;
+    left: 40%;
     width: 35rem;
     height: 15rem;
     border: 1px solid black;
-    background-color: transparent;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;

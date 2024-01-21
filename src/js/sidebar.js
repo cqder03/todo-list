@@ -1,4 +1,5 @@
-import { projects, Project, checkDuplicate} from './projects-n-tasks';
+import { displayMainContent } from './main-content';
+import { projects, Project, checkAvailability} from './projects-n-tasks';
 
 function activateField(id) {
     let defaultIds = [];
@@ -8,13 +9,14 @@ function activateField(id) {
 
     if (defaultIds.includes(id) || addedIds.includes(id)) {
         activeField(id);
+        displayMainContent()
     }
 }
 
 function activeField(field) {
     let defaultFields = document.querySelectorAll('.default-field');
     let addedFields = document.querySelectorAll('.added-field');
-    let allFields = Array.prototype.concat.call(...defaultFields , ...addedFields );
+    let allFields = Array.prototype.concat.call(...defaultFields , ...addedFields);
     
     allFields.forEach(element => {
         element.classList.remove('active');
@@ -25,31 +27,33 @@ function activeField(field) {
 
 function addProject() {
     
-    
     const projectName = document.querySelector('#add-project-name').value;
     const projectDescription = document.querySelector('#add-project-description').value;
     const project = document.createElement('div');
     const iconHolder = document.createElement('span');
     const textHolder = document.createElement('span');
-    let id;
+    let id = setProjectId(projectName);;
 
-     if (projectName.includes(' ')) {
-        id = projectName.replace(' ', '-').toLowerCase();
-        project.setAttribute('id', `${id}`);    
-     } else {
-        id = projectName.toLowerCase(); 
-        project.setAttribute('id', `${id}`);
-     }
+     
     
-     if (checkDuplicate(id)) {
+     if (checkAvailability(id)) {
         alert('You can\'t use the same name as old pojects');
         document.querySelector('#add-project-name').value = '';
         return;
      }
 
+     if (projectName === '') {
+        alert('You need to enter project name'); 
+        return;
+     } else if (projectDescription === '') {
+        alert('You need to enter project description');
+        return;
+     }
+
+    project.setAttribute('id', id);
     project.classList.add('added-field');
 
-    iconHolder.textContent = '::before';
+    iconHolder.textContent = '[icon]';
     iconHolder.classList.add('iconHolderSpan');
     
     textHolder.textContent = projectName;
@@ -60,8 +64,7 @@ function addProject() {
     project.appendChild(iconHolder);
     project.appendChild(textHolder);
     
-    projects.push(new Project(projectName, id, projectDescription, '⭐'));
-    console.log(projects);
+    projects.push(new Project(projectName, id, projectDescription, '[icon]'));
     modalState('close');
 }
 
@@ -70,10 +73,18 @@ function modalState(state) {
     if (state === 'close') {
     document.querySelector('#add-project-name').value = '';
     document.querySelector('#add-project-description').value = '';
-    document.querySelector('.add-project-modal').classList.add('closed-modal');
+    document.querySelector('#add-project-modal').classList.add('closed-modal');
     } else if (state = 'open') {
-        document.querySelector('.add-project-modal').classList.remove('closed-modal');
+        document.querySelector('#add-project-modal').classList.remove('closed-modal');
     }
 }
 
-export {activateField, addProject, modalState};
+function setProjectId(projectName) {
+    if (projectName.includes(' ')) {
+        return projectName.replaceAll(' ', '-').toLowerCase();
+     } else {
+        return projectName.toLowerCase();
+     }
+}
+
+export {activateField, addProject, modalState, setProjectId};
