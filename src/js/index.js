@@ -4,13 +4,21 @@ import {
   displayProject,
   modalState,
 } from "../js/sidebar";
-import { editProjectModal, deleteProjectModal, addTaskModal } from "./modals";
+import {
+  editProjectModal,
+  deleteProjectModal,
+  addTaskModal,
+  deleteLocalStorageModal,
+} from "./modals";
 import { Task, isDefaultProject, projects } from "./projects-n-tasks";
 import { Project } from "./projects-n-tasks";
 
 if (!localStorage.getItem("projects")) {
   console.log("Failed loading local storage projects");
   localStorage.setItem("projects", JSON.stringify(projects));
+  for (let i = 4; i < projects.length; i++) {
+    displayProject(projects[i].id, projects[i].name, projects[i].icon);
+  }
   activateField("inbox");
 } else {
   console.log(projects);
@@ -37,6 +45,10 @@ if (!localStorage.getItem("projects")) {
 
   activateField("inbox");
 }
+
+document.querySelector(".button1").addEventListener("click", () => {
+  deleteLocalStorageModal();
+});
 
 document.querySelector("#middlesidebar").addEventListener("click", (event) => {
   let eventId = event.target.id;

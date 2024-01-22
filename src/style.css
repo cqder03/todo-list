@@ -1,228 +1,224 @@
 @font-face {
-    font-family: 'robotolight';
-    src: url('../src/assets/fonts/Roboto/roboto-light-webfont.woff2') format('woff2'),
-         url('../src/assets/fonts/Roboto/roboto-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotolight";
+  src: url("../src/assets/fonts/Roboto/roboto-light-webfont.woff2")
+      format("woff2"),
+    url("../src/assets/fonts/Roboto/roboto-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'robotoregular';
-    src: url('../src/assets/fonts/Roboto/roboto-regular-webfont.woff2') format('woff2'),
-         url('../src/assets/fonts/Roboto/roboto-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "robotoregular";
+  src: url("../src/assets/fonts/Roboto/roboto-regular-webfont.woff2")
+      format("woff2"),
+    url("../src/assets/fonts/Roboto/roboto-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-    --light-gray: rgb(245, 246, 248);
-    --darker-gray: rgb(225, 227, 232);
-    --red-button: rgba(254,86,88);
-    --green-button: rgb(56, 206, 68);
-    --yellow-button:rgb(255, 189, 49);
+  --light-gray: rgb(245, 246, 248);
+  --darker-gray: rgb(225, 227, 232);
+  --red-button: rgba(254, 86, 88);
+  --green-button: rgb(56, 206, 68);
+  --yellow-button: rgb(255, 189, 49);
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'robotolight';
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "robotolight";
 }
 
 #content-wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 
 /* Sidebar */
 
 #sidebar {
-    height: 100vh;
-    background-color: var(--light-gray);
-    grid-column: 1 / 3;
-    position: relative;
+  height: 100vh;
+  background-color: var(--light-gray);
+  grid-column: 1 / 3;
+  position: relative;
 }
 
 #uppersidebar {
-    padding: 0.5rem 0.5rem;
-    cursor: default;
+  padding: 0.5rem 0.5rem;
+  cursor: default;
 }
 
 .corner-button {
-    height: 15px;
-    width: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0 0.2rem;
-    border: 1px solid gray;
-    border-radius: 50%;
-    background-color: transparent;
+  height: 15px;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 0.2rem;
+  border: 1px solid gray;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 .corner-button:active {
-    transform: scale(0.90);
+  transform: scale(0.9);
 }
 
 button > img {
-    -webkit-user-drag: none;
+  -webkit-user-drag: none;
 }
 
 .button1:hover {
-    background-color: var(--red-button);
-    border-color: var(--red-button);
+  background-color: var(--red-button);
+  border-color: var(--red-button);
 }
 
 .button2:hover {
-    background-color: var(--green-button);
-    border-color: var(--green-button);
+  background-color: var(--green-button);
+  border-color: var(--green-button);
 }
 
 .button3:hover {
-    background-color: var(--yellow-button);
-    border-color: var(--yellow-button);
+  background-color: var(--yellow-button);
+  border-color: var(--yellow-button);
 }
 
 #middlesidebar {
-    padding-top: 2rem;
+  padding-top: 2rem;
 }
 
 .default-field,
 #add-project,
 .added-field {
-    user-select: none;
+  user-select: none;
 }
 
 .default-field,
 .added-field {
-    margin: 0.2rem 0.7rem;
-    padding: 0.25rem 0.3rem 0.25rem 0.8rem;
-    border-radius: 5px;
-    cursor: default;
+  margin: 0.2rem 0.7rem;
+  padding: 0.25rem 0.3rem 0.25rem 0.8rem;
+  border-radius: 5px;
+  cursor: default;
 }
 
 .default-field::before,
 #add-project::before,
 .added-field .iconHolderSpan {
-    padding-right: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .default-field:hover,
 .added-field:hover {
-    background-color: var(--darker-gray);
+  background-color: var(--darker-gray);
 }
-
 
 .active {
-    padding-left: 1.5rem;
-    background-color: var(--darker-gray);
-    transition: padding-left 0.5s;
+  padding-left: 1.5rem;
+  background-color: var(--darker-gray);
+  transition: padding-left 0.5s;
 }
-
 
 .default-field:not(.active),
 .added-field:not(.active) {
-    padding-left: 0.3rem;
-    transition: padding-left 0.5s;
+  padding-left: 0.3rem;
+  transition: padding-left 0.5s;
 }
 
 #inbox::before {
-    content: '📥';
-    color: black;
+  content: "📥";
+  color: black;
 }
 
 #today::before {
-    content: '⭐';
+  content: "⭐";
 }
 
 #week::before {
-    content: '📅';
+  content: "📅";
 }
 
 #logbook::before {
-    content: '📒';
+  content: "📒";
 }
 
 .added-fields > h2 {
-    padding: 2rem 0 0 1.5rem;
+  padding: 2rem 0 0 1.5rem;
 }
 
 #add-project {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3.5rem;
-    line-height: 1.5rem;
-    padding: 1rem 1.3rem;
-    border-top: 2px solid var(--darker-gray);
-    
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5rem;
+  line-height: 1.5rem;
+  padding: 1rem 1.3rem;
+  border-top: 2px solid var(--darker-gray);
 }
 
 #add-project::before {
-    content: '➕';
+  content: "➕";
 }
 
 #add-project:active {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 #add-project-modal {
-    position: absolute;
-    bottom: 3.5rem;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    border-top: 2px solid var(--darker-gray);
+  position: absolute;
+  bottom: 3.5rem;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  border-top: 2px solid var(--darker-gray);
 }
 
 #add-project-modal.closed-modal {
-    display: none;
+  display: none;
 }
 
 #add-project-modal > * {
-    text-indent: 0.25rem;
+  text-indent: 0.25rem;
 }
 
 #add-project-modal > #add-project-name {
-    height: 2rem;
-    border: 1px solid gray;
+  height: 2rem;
+  border: 1px solid gray;
 }
 
 #add-project-modal > #add-project-description {
-    resize: none;
-    height: 4rem;
-    width: 90%;
+  resize: none;
+  height: 4rem;
+  width: 90%;
 }
 
 #add-project-name,
 #add-project-description {
-    background-color: transparent;
-    width: 90%;
-    border: 1px solid gray;
+  background-color: transparent;
+  width: 90%;
+  border: 1px solid gray;
 }
 
 #add-project-description {
-    padding-top: 0.2rem;
+  padding-top: 0.2rem;
 }
 
 .modal-button {
-    border: 1px solid gray;
-    background: transparent;
-    border-radius: 15px;
-    padding: 0.5rem 1rem;
+  border: 1px solid gray;
+  background: transparent;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
 }
 
 .modal-button:active {
-    background-color: black;
-    border-color: black;
-    color: white;
+  background-color: black;
+  border-color: black;
+  color: white;
 }
 
 /* Sidebar end*/
@@ -230,219 +226,236 @@ button > img {
 /* Main content */
 
 #main-content {
-    grid-column: 3 / 13;
-    padding-top: 6rem;
+  grid-column: 3 / 13;
+  padding-top: 6rem;
 }
 
 #main-content > * {
-    width: 80%;
-    margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .main-content-title {
-    font-size: 2rem;
-    padding-bottom: 0.5rem;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 .main-content-title-before {
-    padding: 0 0.5rem 0 0.25rem;
-    font-size: 1.5rem;
-    position: relative;
-    bottom: 0.2rem;
+  padding: 0 0.5rem 0 0.25rem;
+  font-size: 1.5rem;
+  position: relative;
+  bottom: 0.2rem;
 }
 
-.edit, .delete, .add, .done-task, .edit-task, .priority-preview, .task-date {
-    border: 0.1px solid black;
-    background-color: transparent;
-    border-radius: 5px;
-    padding: 0.25rem 2rem;
+.edit,
+.delete,
+.add,
+.done-task,
+.edit-task,
+.priority-preview,
+.task-date {
+  border: 0.1px solid black;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 0.25rem 2rem;
 }
 
-.done-task, .edit-task {
-    display: none;
+.done-task,
+.edit-task {
+  display: none;
 }
 
 .done-task:active,
 .edit-task:active {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 img {
-    height: 1.5rem;
-    position: relative;
-    top: 2px;
+  height: 1.5rem;
+  position: relative;
+  top: 2px;
 }
 
 .main-content-description {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.25rem;
-    background-color: rgb(234, 238, 247);
-    min-height: 2.5rem;
-    border-radius: 5px;
-    padding: 0 0.25rem;
-    margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: rgb(234, 238, 247);
+  min-height: 2.5rem;
+  border-radius: 5px;
+  padding: 0 0.25rem;
+  margin-bottom: 0.25rem;
 }
 
 .task:hover {
-    background-color: rgb(225, 238, 255);
+  background-color: rgb(225, 238, 255);
 
-    & .done-task, .edit-task {
-        height: 100%;
-        display: inline;
-        margin-right: 0.25rem;
-    }
+  & .done-task,
+  .edit-task {
+    height: 100%;
+    display: inline;
+    margin-right: 0.25rem;
+  }
 }
 
 .task-text-content {
-    max-width: 65%;
-    cursor: default;
+  max-width: 65%;
+  cursor: default;
 }
 
 .task-date {
-    margin-left: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 #main-content > #footer {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    bottom: 0;
-    right: 0;
-    height: 3.5rem;
-    width: 83.4%;
-    
-    border-top: 2px solid var(--darker-gray);
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  right: 0;
+  height: 3.5rem;
+  width: 83.4%;
+
+  border-top: 2px solid var(--darker-gray);
 }
 
 .footer-section {
-    height: 100%;
-    width: 33%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
 }
 
 .footer-section > p {
-    padding-left: 1rem;
+  padding-left: 1rem;
 }
 
 .footer-section:hover {
-    background-color: var(--darker-gray);
+  background-color: var(--darker-gray);
 }
 
 .footer-section:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .high-priority {
-    
-    border-left: 5px solid red;
+  border-left: 5px solid red;
 }
 .medium-priority {
-    border-left: 5px solid yellow;
+  border-left: 5px solid yellow;
 }
 .low-priority {
-    border-left: 5px solid rgb(245, 206, 191);
+  border-left: 5px solid rgb(245, 206, 191);
 }
 
 /* Modals */
 
 #add-task-modal,
 #edit-project-modal {
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    width: 45rem;
-    height: 25rem;
-    border: 1px solid black;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-  } 
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 45rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+}
 
-#add-task-modal, 
+#add-task-modal,
 #add-task-description,
 #add-task-modal button,
-#edit-project-modal, 
+#edit-project-modal,
 #edit-project-description,
-#edit-project-modal button  {
-    border-radius: 5px;
-    margin: 0 0.25rem;
-  }
+#edit-project-modal button {
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 0.25rem;
+}
 
-  #add-task-modal > *:not(p),
-  #edit-project-modal > *:not(p) {
-    margin: 0 2.25rem;
-  }
+#add-task-modal > *:not(p),
+#edit-project-modal > *:not(p) {
+  margin: 0 2.25rem;
+}
 
-  .add-task-para,
-  .edit-project-para {
-    margin: 2rem 0 0 2.25rem;
-  }
+.add-task-para,
+.edit-project-para,
+.delete-local-storage-para {
+  margin: 2rem 0 0 2.25rem;
+}
 
-  #add-task-description,
-  #edit-project-description {
-    resize: none;
-    background-color: transparent;
-    width: 90%;
-    height: 5rem;
-  }
+#add-task-description,
+#edit-project-description {
+  resize: none;
+  background-color: transparent;
+  width: 90%;
+  height: 5rem;
+}
 
-  #modal-controls {
-    position: absolute;
-    bottom: 2rem;
-    right: 0;
-  }
+#modal-controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+}
 
-  #add-task-modal button,
-  #edit-project-modal button {
-    padding: 0.25rem 1rem;
-    background-color: transparent;
-    border: 1px solid black;
-    font-size: 1rem;
-  }
+#add-task-modal button,
+#edit-project-modal button {
+  padding: 0.25rem 1rem;
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 1rem;
+}
 
-  #add-task-modal button:active,
-  #edit-project-modal button:active {
-    transform: scale(0.95);
-  }
+#add-task-modal button:active,
+#edit-project-modal button:active {
+  transform: scale(0.95);
+}
 
-  #delete-project-modal {
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    width: 35rem;
-    height: 15rem;
-    border: 1px solid black;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3rem;
-  } 
+#delete-project-modal,
+#delete-local-storage-modal {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 35rem;
+  height: 15rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
 
-  #delete-project-modal, 
-  #delete-project-modal button {
-    border-radius: 5px;
-  }
+#delete-project-modal,
+#delete-project-modal button,
+#delete-local-storage-modal,
+#delete-local-storage-modal button {
+  border-radius: 5px;
+}
 
+#delete-project-modal button,
+#delete-local-storage-modal button {
+  padding: 0.25rem 1rem;
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 1rem;
+  margin: 0 0.25rem;
+}
 
-  #delete-project-modal button {
-    padding: 0.25rem 1rem;
-    background-color: transparent;
-    border: 1px solid black;
-    font-size: 1rem;
-    margin: 0 0.25rem;
-  }
+#delete-project-modal button:active,
+#delete-local-storage-modal button:active {
+  transform: scale(0.95);
+}
 
-  #delete-project-modal button:active {
-    transform: scale(0.95);
-  }
+#delete-modal {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+}

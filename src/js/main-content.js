@@ -67,13 +67,9 @@ function displayMainContent() {
   let allFields = Array.prototype.concat.call(...defaultFields, ...addedFields);
   let activeId = projects[activeProject()].id;
 
-  let mainContentTitleBefore = document.querySelector(
-    ".main-content-title-before"
-  );
+  let mainContentTitleBefore = document.querySelector(".main-content-title-before");
   let mainContentTitle = document.querySelector(".main-content-title");
-  let mainContentDescription = document.querySelector(
-    ".main-content-description"
-  );
+  let mainContentDescription = document.querySelector(".main-content-description");
   let taskWrapper = document.querySelector(".task-wrapper");
   ArangeTasks();
   localStorage.setItem("projects", JSON.stringify(projects));

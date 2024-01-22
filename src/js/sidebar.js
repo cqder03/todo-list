@@ -54,6 +54,7 @@ function addProject() {
   displayProject(id, projectName, "[icon]");
 
   projects.push(new Project(projectName, id, projectDescription, "[icon]"));
+  displayMainContent;
   modalState("close");
 }
 

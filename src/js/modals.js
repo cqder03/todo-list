@@ -1,4 +1,9 @@
-import { isDefaultProject, projects, Task } from "./projects-n-tasks";
+import {
+  deleteTask,
+  isDefaultProject,
+  projects,
+  Task,
+} from "./projects-n-tasks";
 import { displayMainContent, displayTask } from "./main-content";
 import { activateField } from "./sidebar";
 import { activeProject } from "./projects-n-tasks";
@@ -145,6 +150,8 @@ function editTaskModal(id) {
   const highP = document.createElement("option");
   const cancelButton = document.createElement("button");
   const submitButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+
   let taskParent = document.querySelector(`#${id}`);
 
   editTaskModal.setAttribute("id", "add-task-modal");
@@ -161,6 +168,7 @@ function editTaskModal(id) {
   highP.value = "high";
   cancelButton.setAttribute("id", "cancel-modal");
   submitButton.setAttribute("id", "submit-modal");
+  deleteButton.setAttribute("id", "delete-modal");
 
   descriptionPara.textContent = "Enter task description";
   datePara.textContent = "Enter date";
@@ -170,6 +178,7 @@ function editTaskModal(id) {
   highP.textContent = "High";
   cancelButton.textContent = "Cancel";
   submitButton.textContent = "Submit";
+  deleteButton.textContent = "Delete";
 
   descriptionArea.textContent =
     taskParent.querySelector(".task-text-content").textContent;
@@ -204,10 +213,11 @@ function editTaskModal(id) {
   prioritySelector.appendChild(lowP);
   prioritySelector.appendChild(mediumP);
   prioritySelector.appendChild(highP);
+  editTaskModal.appendChild(deleteButton);
   modalControls.appendChild(cancelButton);
   modalControls.appendChild(submitButton);
 
-  modalControls.addEventListener("click", (event) => {
+  editTaskModal.addEventListener("click", (event) => {
     let eventId = event.target.id;
 
     if (eventId === "cancel-modal") {
@@ -223,6 +233,10 @@ function editTaskModal(id) {
         prioritySelector.value;
       projects[activeProject()].tasks[activeTaskIndex].date = datePicker.value;
 
+      displayMainContent();
+      document.querySelector("#main-content").removeChild(editTaskModal);
+    } else if (eventId === "delete-modal") {
+      deleteTask(id);
       displayMainContent();
       document.querySelector("#main-content").removeChild(editTaskModal);
     }
@@ -314,6 +328,7 @@ function addTaskModal() {
         ],
         projects[activeProject()].id
       );
+      displayMainContent();
       document.querySelector("#main-content").removeChild(addTaskModal);
     }
   });
@@ -321,4 +336,46 @@ function addTaskModal() {
   document.querySelector("#main-content").appendChild(addTaskModal);
 }
 
-export { editProjectModal, deleteProjectModal, addTaskModal, editTaskModal };
+function deleteLocalStorageModal() {
+  const dLTModal = document.createElement("div");
+  const modalControls = document.createElement("div");
+  const dLTPara = document.createElement("p");
+  const yesButton = document.createElement("button");
+  const noButton = document.createElement("button");
+
+  dLTModal.setAttribute("id", "delete-local-storage-modal");
+
+  dLTPara.setAttribute("class", "delete-local-storage-para");
+  yesButton.setAttribute("id", "yes-modal");
+  noButton.setAttribute("id", "no-modal");
+
+  dLTPara.textContent = "Are you sure you want to delete all saved ";
+  yesButton.textContent = "Yes";
+  noButton.textContent = "No";
+
+  dLTModal.appendChild(dLTPara);
+  dLTModal.appendChild(modalControls);
+  modalControls.appendChild(yesButton);
+  modalControls.appendChild(noButton);
+
+  document.querySelector("#main-content").appendChild(dLTModal);
+
+  modalControls.addEventListener("click", (event) => {
+    let eventId = event.target.id;
+
+    if (eventId === "no-modal") {
+      document.querySelector("#main-content").removeChild(dLTModal);
+    } else if (eventId === "yes-modal") {
+      localStorage.removeItem("projects");
+      document.querySelector("#main-content").removeChild(dLTModal);
+    }
+  });
+}
+
+export {
+  editProjectModal,
+  deleteProjectModal,
+  addTaskModal,
+  editTaskModal,
+  deleteLocalStorageModal,
+};

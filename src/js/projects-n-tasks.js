@@ -86,6 +86,21 @@ function doneTask(taskId) {
   displayMainContent();
 }
 
+function deleteTask(taskId) {
+  for (let project of projects) {
+    if (isDefaultProject(project.id)) {
+      continue;
+    }
+    project.tasks.forEach((task) => {
+      if (taskId === task.id) {
+        let taskIndex = project.tasks.indexOf(task);
+        project.tasks.splice(taskIndex, 1);
+      }
+    });
+    console.log(project.tasks);
+  }
+}
+
 function ArangeTasks() {
   projects[0].tasks = [];
   for (let project of projects) {
@@ -196,4 +211,5 @@ export {
   ArangeTasks,
   isDefaultProject,
   doneTask,
+  deleteTask,
 };

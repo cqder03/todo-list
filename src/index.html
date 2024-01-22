@@ -1,71 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../src/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../src/style.css" />
+  </head>
+  <body>
     <main id="content-wrapper">
-        <div id="sidebar">
-            <div id="uppersidebar">
-                <button class="corner-button button1"></button>
-                <button class="corner-button button2"></button>
-                <button class="corner-button button3"></button>
-            </div>
-            <div id="middlesidebar">
-                <div class="default-fields">
-                    <div id="inbox" class="default-field">Inbox</div>
-                    <div id="today" class="default-field">Today</div>
-                    <div id="week" class="default-field">This week</div>
-                    <div id="logbook" class="default-field">Logbook</div>
-                </div>
-                <div class="added-fields">
-                    <h2>Projects</h2>
-                    <!-- <div id="example-project" class="added-field">
-                        <span class="iconHolderSpan">[icon]</span>
-                        <span class="textHolderSpan">new project</span>
-                    </div> -->
-                </div>
-            </div>
-            <div id="bottomsidebar">
-                <div id="add-project">New Project</div>
-                <div id="add-project-modal" class="closed-modal">
-                    <input id="add-project-name" type="text" placeholder="Enter project name">
-                    <textarea name="description" id="add-project-description" cols="30" rows="10" 
-                    placeholder="Enter project description"></textarea>
-                    <div class="button-wrapper">
-                        <button id="submit" class="modal-button">Submit</button>
-                        <button id="cancel" class="modal-button">Cancel</button>
-                    </div>
-                </div>
-            </div>
+      <div id="sidebar">
+        <div id="uppersidebar">
+          <button class="corner-button button1"></button>
+          <button class="corner-button button2"></button>
+          <button class="corner-button button3"></button>
         </div>
-        <div id="main-content">
-            <div class="title-wrapper">
-                <span class="main-content-title-before">📥</span>
-                <span class="main-content-title">Inbox</span>
-            </div>
-            <div class="main-content-description">Description : All created tasks</div>
-            <div class="task-wrapper">
-            </div>
-            <div id="footer">
-                <div class="footer-section" id="add-task">
-                    <button class="add"><img src="../src/assets//icons/plus.png" alt="plus"></button>
-                    <p>Add Task</p>
-                </div>
-                <div class="footer-section" id="edit-project">
-                    <button class="edit"><img src="../src/assets/icons/edit.png" alt="edit"></button>
-                    <p>Edit Project</p>
-                </div>
-                <div class="footer-section" id="delete-project">
-                    <button class="delete"><img src="../src/assets/icons/bin.png" alt="bin"></button>
-                    <p>Delete Project</p>
-                </div>
-            </div>
-
+        <div id="middlesidebar">
+          <div class="default-fields">
+            <div id="inbox" class="default-field">Inbox</div>
+            <div id="today" class="default-field">Today</div>
+            <div id="week" class="default-field">This week</div>
+            <div id="logbook" class="default-field">Logbook</div>
+          </div>
+          <div class="added-fields">
+            <h2>Projects</h2>
+          </div>
         </div>
+        <div id="bottomsidebar">
+          <div id="add-project">New Project</div>
+          <div id="add-project-modal" class="closed-modal">
+            <input
+              id="add-project-name"
+              type="text"
+              placeholder="Enter project name"
+            />
+            <textarea
+              name="description"
+              id="add-project-description"
+              cols="30"
+              rows="10"
+              placeholder="Enter project description"
+            ></textarea>
+            <div class="button-wrapper">
+              <button id="submit" class="modal-button">Submit</button>
+              <button id="cancel" class="modal-button">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="main-content">
+        <div class="title-wrapper">
+          <span class="main-content-title-before">📥</span>
+          <span class="main-content-title">Inbox</span>
+        </div>
+        <div class="main-content-description">
+          Description : All created tasks
+        </div>
+        <div class="task-wrapper"></div>
+        <div id="footer">
+          <div class="footer-section" id="add-task">
+            <button class="add">
+              <img src="../src/assets//icons/plus.png" alt="plus" />
+            </button>
+            <p>Add Task</p>
+          </div>
+          <div class="footer-section" id="edit-project">
+            <button class="edit">
+              <img src="../src/assets/icons/edit.png" alt="edit" />
+            </button>
+            <p>Edit Project</p>
+          </div>
+          <div class="footer-section" id="delete-project">
+            <button class="delete">
+              <img src="../src/assets/icons/bin.png" alt="bin" />
+            </button>
+            <p>Delete Project</p>
+          </div>
+        </div>
+      </div>
     </main>
-</body>
+  </body>
 </html>
